@@ -48,7 +48,9 @@ const api = axios.create({
    * Khi build production, cần đặt biến môi trường VITE_API_URL
    * hoặc cấu hình reverse proxy (Nginx...) tương tự.
    */
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL 
+    ? `${import.meta.env.VITE_API_URL}/api` 
+    : '/api',
 
   /** Mọi request JSON đều cần header này */
   headers: {
